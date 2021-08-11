@@ -1,0 +1,52 @@
+mat-spinner{
+    margin:auto;
+}
+
+
+mat-card{
+    width: 350px;
+    height: 400px;
+    display: block;
+    margin-left:auto;
+    margin-right:auto;  
+    vertical-align:middle;
+}
+
+/* .mat-card-header{
+    justify-content:flex-start;
+} */
+
+.mat-card-actions{
+    justify-content:flex-end;
+}
+
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    margin-left: 30%;
+    margin-right:30%;
+    margin-top:5%;
+    margin-bottom: 5%;
+    overflow:scroll;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+   
+    background-color:white; 
+    border:5px solid;
+    border-color: #3f51b5;
+
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+  }
+.btn{
+    background-color:#3f51b5;
+}
+ 
+#pdf{
+
+    padding: 0px !important;
+    justify-content: left !important;
+
+}

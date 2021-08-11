@@ -1,0 +1,58 @@
+#application_div{
+   
+    display: inline-block;
+    margin-left:auto;
+    margin-right:auto;
+    vertical-align:middle;
+}
+mat-select{
+    border:2px solid;
+    width: 20%;
+    height:30px;
+    color:rgba(0,0,0,.87);
+    border-radius:10px;
+    align-content: center;
+    margin-left:40%;
+    margin-right:40%;  
+    vertical-align:middle;
+}
+mat-card{
+    width: 30%;
+    height: 30%;
+    margin-left:auto;
+    margin-right:auto;  
+    vertical-align:middle;
+}
+mat-label{
+    margin-left:40%;
+    font-weight:bold;
+    font-size:20px;
+}
+.btn{
+    background-color:#3f51b5;
+}
+ pdf-viewer{
+     display:block;
+     height:100vh;
+ }
+ #overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    margin-left: 20%;
+    margin-right:20%;
+    margin-top:5%;
+    margin-bottom: 5%;
+    overflow:hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+   
+    background-color:white; 
+    border:5px solid;
+    border-color: #3f51b5;
+
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+  }
+ 

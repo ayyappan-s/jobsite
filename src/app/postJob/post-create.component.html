@@ -1,0 +1,58 @@
+<div  class="jumbotron container">
+<h1 align="center">Job Details</h1>
+<form align="center" (submit)="onPostJob(postForm)" #postForm="ngForm">
+<mat-form-field appearance="fill">
+    <mat-label>Position Name</mat-label>
+    <input matInput type="text" id="position_name" name="position_name" #position="ngModel" ngModel required>
+    <mat-error *ngIf="position.invalid">Please Enter position</mat-error>
+</mat-form-field>
+<br>
+<mat-form-field  appearance="fill">
+    <mat-label>Skills Needed</mat-label>
+    <input matInput type="text" id="skills_needed" name="skills_needed" #skills="ngModel" ngModel required>
+    <mat-error *ngIf="skills.invalid">Please Enter Skills Needed</mat-error>
+</mat-form-field>
+<br>
+<mat-form-field  appearance="fill">
+    <mat-label>Experience Needed</mat-label>
+    <input matInput type="text" id="experience_needed" name="experience_needed" #experience="ngModel" ngModel required>
+    <mat-error *ngIf="experience.invalid">Please Enter a Experience Needed</mat-error>
+</mat-form-field>
+<br>
+<mat-form-field  appearance="fill">
+    <mat-label>Salary Min</mat-label>
+    <input matInput type="number" id="start" name="salary_min" #minsalary="ngModel" ngModel required>
+    <mat-error *ngIf="minsalary.invalid">Please Enter a Minimum Salary</mat-error>
+    <mat-hint align="start">Enter Salary in Lakhs per Annum</mat-hint>
+</mat-form-field>
+<br>
+<mat-form-field  appearance="fill">
+    <mat-label>Salary Max</mat-label>
+    <input matInput type="number" id="to" name="salary_max" #maxsalary="ngModel" ngModel required >
+    <mat-error *ngIf="maxsalary.invalid">Please Enter a Maximum Salary</mat-error>
+    <mat-hint align="start">Enter Salary in Lakhs per Annum</mat-hint>
+</mat-form-field>
+<br>
+<mat-form-field  appearance="fill">
+    <mat-label>Company Name</mat-label>
+    <input matInput type="text" id="company" name="company_name" #companyname="ngModel" ngModel required>
+    <mat-error *ngIf="companyname.invalid">Please Enter Company Name</mat-error>
+</mat-form-field>
+<br>
+<mat-form-field  appearance="fill">
+    <mat-label for="location">Location</mat-label>
+    <input matInput type="text" id="location" name="location" ngModel #location="ngModel" required>
+    <mat-error *ngIf="location.invalid">Please Enter a Location</mat-error>
+</mat-form-field>
+<br>
+<mat-form-field  appearance="fill">
+    <mat-label for="email">Email</mat-label>
+    <input matInput type="email" id="email" name="email" ngModel required #email="ngModel">
+    <mat-error *ngIf="email.invalid">Please Enter a email</mat-error>
+</mat-form-field>
+<br>
+
+    <button mat-raised-button type="submit">Post Job</button>
+
+</form>
+</div>

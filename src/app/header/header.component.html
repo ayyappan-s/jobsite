@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+    <span style="font-size:30px;">Job Site</span>
+    
+    <ul>
+        <li>
+            <span style="font-size:20px;">
+                <button mat-button color="primary">
+            <a id="job" routerLink="/" (click)="setDisable($event)">Jobs</a>
+        </button>
+        </span>
+        </li>
+     
+        <li> 
+            <span style="font-size:20px;">
+                <button mat-button color="primary">
+            <a id="postjob"routerLink="/create" (click)="setDisable($event)">Post Job</a>
+        </button>
+        </span>
+        </li>
+        
+       
+        <li>    <span style="font-size:20px; float:right;" class="filler">
+            <button mat-button color="primary">
+             <a id="applications" routerLink="/applications" (click)="setDisable($event)">Applications</a>
+            </button>
+            </span>
+            </li>
+
+
+    </ul>
+    
+
+
+
+</mat-toolbar>

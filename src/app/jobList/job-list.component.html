@@ -1,0 +1,147 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<div  *ngIf="!isLoading">
+<mat-card *ngFor="let post of posts">
+    <h1 style="font-weight:bold">{{ post.position_name }}</h1>
+    <h4>{{ post.company_name }}</h4>
+    <mat-card-content>
+       
+        <p>Salary:{{ post.salary_min }}L - {{ post.salary_max }}L</p>
+        <p>Skills:{{ post.skills_needed }}</p>
+        <p>Experience:{{ post.experience_needed }}Yrs</p>
+        <p>Location:{{ post.location }}</p>
+    </mat-card-content>
+  
+    <mat-card-actions align="end">
+        <button  class="btn btn-primary" id="{{post._id}}" (click)="showForm();setId($event)">Apply</button>
+    </mat-card-actions>
+    <hr>
+</mat-card>
+
+</div>
+
+
+<div *ngIf="isShow" id="overlay" style="display:{{display}}">
+    <div  class="jumbotron container">
+        <h1 align="center">Details</h1>
+        <form align="center" (submit)="OnApply(applyForm)" #applyForm="ngForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" name="name" #name="ngModel" ngModel required>
+            <mat-error *ngIf="name.invalid">Please Enter Your Name</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field  appearance="fill">
+            <mat-label>CGPA</mat-label>
+            <input matInput type="number" name="cgpa" #cgpa="ngModel" ngModel required>
+            <mat-error *ngIf="cgpa.invalid">Please Enter CGPA</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field  appearance="fill">
+            <mat-label>College Name</mat-label>
+            <input matInput type="text"  name="clg_name" #clg_name="ngModel" ngModel required>
+            <mat-error *ngIf="clg_name.invalid">Please Enter College Name</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field  appearance="fill">
+            <mat-label>Highest Qualification</mat-label>
+            <input matInput type="text"  name="major" #major="ngModel" ngModel required>
+            <mat-error *ngIf="major.invalid">Please Enter your Major</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field  appearance="fill">
+            <mat-label>Skills</mat-label>
+            <input matInput type="text" name="skills" #skills="ngModel" ngModel required >
+            <mat-error *ngIf="skills.invalid">Please Enter Your Skills</mat-error>
+        </mat-form-field>
+        <br>
+        
+        <mat-form-field  appearance="fill">
+            <mat-label>Experience</mat-label>
+            <input matInput type="Number"  name="experience" ngModel #experience="ngModel" required>
+            <mat-error *ngIf="experience.invalid">Please Enter Your Experience</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field  appearance="fill">
+            <mat-label>12th/Diploma Percentage</mat-label>
+            <input matInput type="number"  name="hscp" ngModel required #hscp="ngModel">
+            <mat-error *ngIf="hscp.invalid">Please Enter Your 12th Percentage</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field  appearance="fill">
+            <mat-label>10th Percentage</mat-label>
+            <input matInput type="number"  name="sslcp" ngModel required #sslcp="ngModel">
+            <mat-error *ngIf="sslcp.invalid">Please Enter Your 10th Percentage</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field  appearance="fill">
+            <mat-label>Location</mat-label>
+            <input matInput type="text"  name="location" ngModel required #location="ngModel">
+            <mat-error *ngIf="location.invalid">Please Enter Your Location</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field  appearance="fill">
+            <mat-label>Age</mat-label>
+            <input matInput type="text"  name="age" ngModel required #age="ngModel">
+            <mat-error *ngIf="age.invalid">Please Enter Your Age</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field  appearance="fill">
+            <mat-label>Year Of Passing</mat-label>
+            <input matInput type="text"  name="yearofpass" ngModel required #yearofpass="ngModel">
+            <mat-error *ngIf="yearofpass.invalid">Please Enter Your Year of Passing</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field  appearance="fill">
+            <mat-label>Arrears</mat-label>
+            <input matInput type="text"  name="arrear" ngModel required #arrear="ngModel">
+            <mat-error *ngIf="arrear.invalid">Please Enter Number of Arrears</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field  appearance="fill">
+            <mat-label>Language Known</mat-label>
+            <input matInput type="text"  name="language" ngModel required #language="ngModel">
+            <mat-error *ngIf="language.invalid">Please Enter the Languages you Know</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field  appearance="fill">
+            <mat-label>Phone</mat-label>
+            <input matInput type="phone" name="phone" (change)="setPhone($event)" #phone="ngModel" ngModel required>
+            <mat-error *ngIf="phone.invalid">Please Enter Your Phone Number</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field  appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" name="email" #email="ngModel" ngModel required>
+            <mat-error *ngIf="email.invalid">Please Enter Your Email</mat-error>
+        </mat-form-field>
+        <br>
+
+        <input #pdfInput hidden="true" type="file" onclick="this.value=null" (change)="uploadFile($event)" accept=".pdf"/>
+        <div style="float:inline-block;">
+        <mat-label id="pdf">Resume</mat-label>
+        <div style="float:inline-block;">
+       
+        <button mat-raised-button color="primary" (click)="pdfInput.click()" type="button" [disabled]="btnState">{{state}}</button>
+        <mat-spinner *ngIf="isFileUploading" [diameter]="20"></mat-spinner>
+        
+    </div>
+    </div>
+        <br>
+         <br>
+
+
+
+        <div id="applybuttons">
+            <button mat-raised-button color="primary" type="submit">Apply</button>
+            <button mat-raised-button (click)=showForm()>Close</button>
+        </div>
+        </form>
+        </div>
+
+
+
+
+
+
+
+</div>

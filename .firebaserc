@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "jobsite-68ed4": {
+      "hosting": {
+        "jobsite": [
+          "jobsite-68ed4"
+        ]
+      }
+    }
+  }
+}

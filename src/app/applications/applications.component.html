@@ -1,0 +1,42 @@
+<div id="application_div" style="padding:50px;display:inline-block;" >
+<br>
+
+<br>
+
+<mat-label>Select Job</mat-label>
+<mat-select [(ngModel)]="selectedValue" (ngModelChange)="valueChange()" name="job">
+    <mat-option *ngFor="let val of jobs" [value]="val">{{val.position_name+" "+val.company_name}}</mat-option>
+</mat-select>
+</div>
+
+<mat-card *ngFor="let a of applications">
+    <h1>{{ a.name }}</h1>
+    <h4>{{a.major}}</h4>
+    <mat-card-content>
+        <p>Skills:{{a.skills}}</p>
+        <p>Arrears:{{a.arrears}}</p>
+        <p>College:{{a.clg_name}}</p>
+        <p>Experience:{{a.experience}}</p>
+        <p>HSC Percentage:{{a.hscp}}</p>
+        <p>SSLC Percentage:{{a.sslcp}}</p>
+        <p>Email:{{a.email}}</p>
+        <p>Age:{{a.age}}</p>
+        <p>Year Of Passing:{{a.yearofpass}}</p>
+        <p>Language:{{a.language}}</p>
+        <p>Location:{{a.location}}</p>
+        <p>Phone:{{a.phone}}</p>
+        <button class="btn btn-primary" id="{{a.resume}}"color="primary" (click)="viewResume($event)">Resume</button>
+    </mat-card-content>
+    <hr>
+</mat-card>
+
+
+<div id="resumeViewer" *ngIf="isShow" id="overlay" style="display:{{display}}">
+    <button mat-button color="primary"  (click)="closeResume()">Close</button>
+    <!-- <ngx-extended-pdf-viewer [src]="'https://www.tutorialspoint.com/java/java_tutorial.pdf'" [height]="'90vh'"></ngx-extended-pdf-viewer> -->
+    <pdf-viewer [src]="src" 
+              [render-text]="true"
+              style="display: block;"
+  ></pdf-viewer>
+
+</div>

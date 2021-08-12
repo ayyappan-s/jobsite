@@ -6,7 +6,7 @@ const app = express();
 const mongoose=require("mongoose");
 mongoose.Promise=global.Promise;
 const cors = require('cors')({origin: true});
-mongoose.connect("mongodb+srv://jobsite:h8ar26lgYlG5EbF5@cluster0.nbjz4.mongodb.net/node-angular?retryWrites=true&w=majority")
+mongoose.connect("Mongo-DB SERVER LINK")
         .then(()=>{
             console.log("Connected To Database");
         })
